@@ -1,9 +1,15 @@
+const latitude = document.querySelector("#latitude");
+const longitude = document.querySelector('#longitude');
+
 if('geolocation' in navigator) {
    console.log("Geolocation is available")
 
     navigator.geolocation.getCurrentPosition((position) => {
-        console.log('Latitude: ', position.coords.latitude), 
-        console.log('Longitude: ', position.coords.longitude);
+        const lat = position.coords.latitude
+        const long = position.coords.longitude
+
+        latitude.textContent = lat
+        longitude.textContent = long
     });
   
   } else {
